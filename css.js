@@ -9,7 +9,7 @@ define([], function() {
          */
         classes: function cssClasses(node) {
             if (typeof node.getAttribute !== 'function') {
-                throw new Exception('Argument is not a DOM Node');
+                throw new Error('Argument is not a DOM Node');
             }
             var classes = node.getAttribute('class');
             if (!classes) {
@@ -26,7 +26,7 @@ define([], function() {
          */
         addClass: function addCssClass(node, cls) {
             if (typeof node.getAttribute !== 'function') {
-                throw new Exception('Argument is not a DOM Node');
+                throw new Error('Argument is not a DOM Node');
             }
             var classes = node.getAttribute('class');
             if (!classes) {
@@ -59,7 +59,7 @@ define([], function() {
          */
         hasClass: function hasCssClass(node, cls) {
             if (typeof node.getAttribute !== 'function') {
-                throw new Exception('Argument is not a DOM Node');
+                throw new Error('Argument is not a DOM Node');
             }
             var re, attr = node.getAttribute('class');
             if (!attr) {
@@ -81,7 +81,7 @@ define([], function() {
          */
         removeClass: function removeCssClass(node, cls) {
             if (typeof node.getAttribute !== 'function') {
-                throw new Exception('Argument is not a DOM Node');
+                throw new Error('Argument is not a DOM Node');
             }
             var classes = node.getAttribute('class');
             var initialClasses = classes;
