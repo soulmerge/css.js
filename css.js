@@ -2,7 +2,7 @@ define('lib/css.js', [], function() {
 
     "use strict";
 
-    return {
+    var css = {
 
         /**
          * Returns the css classes of a DOM node as an array.
@@ -72,6 +72,25 @@ define('lib/css.js', [], function() {
         },
 
         /**
+         * Toggles given css classes on given DOM node.
+         * Class names can either be
+         * - a string containing one or more class names separated by space, or
+         * - an array containing single class names.
+         */
+        toggleClass: function hasCssClass(node, cls) {
+            if (!(cls instanceof Array)) {
+                cls = cls.split(/\s+/);
+            }
+            for (var i = 0; i < cls.length; i++) {
+                if (css.hasClass(node, cls[i])) {
+                    css.removeClass(node, cls[i]);
+                } else {
+                    css.addClass(node, cls[i]);
+                }
+            }
+        },
+
+        /**
          * Removes given css class[es] from given DOM node.
          * Class names can either be
          * - a string containing one or more class names separated by space, or
@@ -102,5 +121,7 @@ define('lib/css.js', [], function() {
         }
 
     };
+
+    return css;
 
 });
