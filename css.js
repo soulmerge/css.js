@@ -52,7 +52,7 @@ define('lib/css.js', [], function() {
         },
 
         /**
-         * Tests whether given DOM node has given css class[es].
+         * Tests whether given DOM node has any of given given css classes.
          * Class names can either be
          * - a string containing one or more class names separated by space, or
          * - an array containing single class names.
@@ -65,12 +65,10 @@ define('lib/css.js', [], function() {
             if (!attr) {
                 return false;
             }
-            if (cls instanceof Array) {
-                re = new RegExp('(^|\\s+)(' + cls.join('|') + ')(\\s+|$)');
-            } else {
-                re = new RegExp('(^|\\s+)(' + cls + ')(\\s+|$)');
+            if (!(cls instanceof Array)) {
+                cls = cls.split(/\s+/);
             }
-            return attr.match(re);
+            return attr.match(new RegExp('(^|\\s+)(' + cls.join('|') + ')(\\s+|$)'));
         },
 
         /**
