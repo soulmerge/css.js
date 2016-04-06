@@ -77,7 +77,7 @@ define('lib/css.js', [], function() {
          * - a string containing one or more class names separated by space, or
          * - an array containing single class names.
          */
-        toggleClass: function hasCssClass(node, cls) {
+        toggleClass: function toggleCssClass(node, cls) {
             if (!(cls instanceof Array)) {
                 cls = cls.split(/\s+/);
             }
