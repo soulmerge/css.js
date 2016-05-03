@@ -1,4 +1,4 @@
-define('lib/css.js', [], function() {
+define(function() {
 
     "use strict";
 
